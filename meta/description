@@ -1,0 +1,4 @@
+Language is a support library for other langauge libraries.
+While some of it's contents are prefectly usable on there own,
+most are generally intended to be subclassed and extended  by
+specific language modules, such as English.
