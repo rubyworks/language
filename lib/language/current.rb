@@ -3,7 +3,7 @@ module Language
   class << self
 
     def default
-      @default || 'en'
+      @default || 'to_lang' # 'en' ???
     end
 
     def default=(lang)

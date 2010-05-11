@@ -1,19 +1,4 @@
-# = TITLE:
-#
-#   Censor
-#
-# = DESCRIPTION:
-#
-#   Reusable class for filtering and rewriting strings.
-#
-# = AUTHORS:
-#
-#   - George Moschovitis
-#   - Thomas Sawyer
-#
-# = TODO:
-#
-# * Add built-in (but optional) dirty word list.
+# TODO: dirty word list ?
 
 #
 module Language
@@ -23,7 +8,7 @@ module Language
   # This class allows one to define a resuable text filter.
   # This is useful for removing or replacing curse words or
   # senstive information from user input.
-  #
+
   class Censor
 
     # Abritraty rules.

@@ -1,4 +1,5 @@
 module Language
+  extend self
 
   # Subclass this in your specific language modules.
   #
@@ -24,7 +25,7 @@ module Language
     end
 
     def language
-      @_laguage ||= self.class.language
+      @_language ||= self.class.language
     end
 
   end
@@ -64,7 +65,7 @@ module Language
     end
 
     def language
-      @_laguage ||= self.class.language
+      @_language ||= self.class.language
     end
   end
 
@@ -83,9 +84,30 @@ module Language
     end
 
     def language
-      @_laguage ||= self.class.language
+      @_language ||= self.class.language
     end
   end
 
+end
+
+class String
+  # Higher-order function to invoke English functions.
+  def to_lang
+    Language::String.instance(self)
+  end
+end
+
+class Array
+  # Higher-order function to invoke English functions.
+  def to_lang
+    Language::Array.instance(self)
+  end
+end
+
+class Integer
+  # Higher-order function to invoke English functions.
+  def to_lang
+    Language::Integer.instance(self)
+  end
 end
 

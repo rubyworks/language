@@ -1,15 +1,10 @@
-# The Orthography module encapsulate functions pertaining
-# to written structures, such as words.
-#
 # This module charaterizes the most common forms of Orthography
 # in computer systems --words divided by spaces, used paragraphs
 # by blank lines, and so on.
 
-
 require 'language/classes'
 
 module Language
-  extend self
 
   # If block given, iterate through each word.
   #
