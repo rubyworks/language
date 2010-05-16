@@ -1,0 +1,23 @@
+--- 
+title  : Language
+suite  : rubyworks
+summary: Language Support Library
+license: MIT
+authors: Thomas Sawyer
+created: 2007-08-01
+
+description:
+  Language is a support library for other langauge libraries.
+  While some of it's contents are prefectly usable on there own,
+  most are generally intended to be subclassed and extended  by
+  specific language modules, such as English.
+
+resources:
+  homepage    : http://rubyworks.github.com/language
+  development : http://github.com/rubyworks/language
+  respository : git://github.com/rubyworks/language.git
+  subscribe   : rubyworks-mailinglist+subscribe@googlegroups.com
+
+copyright:
+  COpyright (c) 2007 Thomas Sawyer
+
