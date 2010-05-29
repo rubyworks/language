@@ -1,7 +1,7 @@
+require 'language/censor'
 require 'test/unit'
-require 'english/censor'
 
-class TC_String_Censor < Test::Unit::TestCase
+class TestCensor < Test::Unit::TestCase
 
   def test_word_filter
     s = "this is a test"
