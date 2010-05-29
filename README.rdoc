@@ -1,7 +1,38 @@
 = Language
 
+* home: http://rubyworks.github.com/language
+* work: http://github.com/rubyworks/language
+
 Language is a support library for other langauge libraries.
 While some of it's contents are prefectly usable on there own,
 most are generally intended to be subclassed and extended  by
 specific language modules, such as English.
 
+
+== SYNOPSIS
+
+  require 'language'
+
+  "How many words?".words  #=> ['How', 'many', 'words']
+
+
+== INSTALLATION
+
+The usual Rubygems way:
+
+  $ gem install language
+
+
+== COPYING
+
+(MIT License)
+
+Copyright (c) 2010 Thomas Sawyer
+
+English is distributed under the terms of the MIT license.
+
+See LICENCE for details.
+
+Some libraries are subtantial derivatives of other persons
+work. Fully copyright and licensing information is given
+for those in the corresponding source files.

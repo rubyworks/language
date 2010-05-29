@@ -1,0 +1,10 @@
+= Release History
+
+== 0.6.0 / 2010-05-29
+
+This is the first release of Language, however the code was previously
+released with the English project. Hence the current version of
+Language matches the present version of English. Language combines
+all the features previously part of English that are language
+netural or multi-lingual. It threfore provide a dependency for
+the English library.
