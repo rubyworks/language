@@ -1,3 +1,68 @@
+class Language
+
+  #
+  def self.abbreviation
+    'lang'
+  end
+
+  #
+  def self.default
+    @default || abbreviation
+  end
+
+  #
+  def self.default=(lang)
+    @default = lang
+  end
+
+  #
+  def self.current
+    @current || default
+  end
+
+  #
+  def self.current=(lang)
+    @current = lang
+  end
+
+  #
+  def self.instance(string)
+    @cache ||= {}
+    @cache[string.object_id] = new(string)
+  end
+
+  #
+  def initialize(subject)
+    @self = subject
+  end
+
+end
+
+class String
+  # Higher-order function to invoke Language functions.
+  def lang
+    Language.instance(self)
+  end
+end
+
+class Array
+  # Higher-order function to invoke Language functions.
+  def lang
+    Language.instance(self)
+  end
+end
+
+class Integer
+  # Higher-order function to invoke Language functions.
+  def lang
+    Language.instance(self)
+  end
+end
+
+
+
+
+=begin
 module Language
   extend self
 
@@ -31,8 +96,8 @@ module Language
   end
 
   # TODO: We can't actually subclass Integer.
-  # But we can fake it, how ever we need to sublass
-  # it just so is_a? works. However subclassing in causes
+  # But we can fake it. However we need to sublass
+  # it just so #is_a? works. However subclassing it causes
   # the .new method not to exist, how to fix?
   #
   class Integer #< ::Integer
@@ -64,6 +129,7 @@ module Language
       @integer.__send__(s,*a,&b)
     end
 
+    #
     def language
       @_language ||= self.class.language
     end
@@ -89,25 +155,5 @@ module Language
   end
 
 end
-
-class String
-  # Higher-order function to invoke English functions.
-  def to_lang
-    Language::String.instance(self)
-  end
-end
-
-class Array
-  # Higher-order function to invoke English functions.
-  def to_lang
-    Language::Array.instance(self)
-  end
-end
-
-class Integer
-  # Higher-order function to invoke English functions.
-  def to_lang
-    Language::Integer.instance(self)
-  end
-end
+=end
 

@@ -1,7 +1,6 @@
-# TODO: dirty word list ?
+require 'language/class'
 
-#
-module Language
+class Language
 
   # = Censor
   #
@@ -10,6 +9,11 @@ module Language
   # senstive information from user input.
 
   class Censor
+
+    # Default censor list.
+    def self.default_words
+      []
+    end
 
     # Abritraty rules.
     attr :rules
@@ -22,6 +26,10 @@ module Language
     def initialize()
       @rules = []
       @word_rules = []
+
+      self.class.default_words.each do |word|
+         word_rule(word)
+      end
     end
 
     # Create new rule. A rule consists of a string or regexp

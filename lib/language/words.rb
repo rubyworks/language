@@ -2,9 +2,9 @@
 # in computer systems --words divided by spaces, used paragraphs
 # by blank lines, and so on.
 
-require 'language/classes'
+require 'language/class'
 
-module Language
+class Language
 
   # If block given, iterate through each word.
   #
@@ -14,7 +14,7 @@ module Language
   #
   #   "abc 123".words  #=> ["abc","123"]
   #
-  def words(string, &yld)
+  def self.words(string, &yld)
     if block_given?
       string.scan(/([-'\w]+)/).each do |word|
         range = $~.begin(0)...$~.end(0)
@@ -30,7 +30,7 @@ module Language
   end
 
   #
-  def sentences(string, &yld)
+  def self.sentences(string, &yld)
     if block_given?
       string.scan(/(.*?\.\ )/).each do |sentence|
         range = $~.begin(0)...$~.end(0)
@@ -40,13 +40,13 @@ module Language
           yld.call(sentence, range)
         end
       end
-    elseruby flow
+    else
       string.scan(/(.*?\.\ )/)
     end
   end
 
   #
-  def paragraphs(string, &yld)
+  def self.paragraphs(string, &yld)
     if block_given?
       string.scan(/(.*?\n\s{2,})/).each do |paragraph|
         range = $~.begin(0)...$~.end(0)
@@ -74,7 +74,7 @@ module Language
   # CREDIT: Gavin Kistner
   # CREDIT: Dayne Broderson
 
-  def word_wrap(string, col_width=79)
+  def self.word_wrap(string, col_width=79)
     string = string.gsub( /(\S{#{col_width}})(?=\S)/, '\1 ' )
     string = string.gsub( /(.{1,#{col_width}})(?:\s+|$)/, "\\1\n" )
     string
@@ -111,45 +111,41 @@ module Language
   #   end
 =end
 
-  class String
+  def words(&blk)
+    self.class.words(@self, &blk)
+  end
 
-    def words(&blk)
-      language.words(self, &blk)
-    end
+  #
+  def each_word(&blk)
+    words(&blk)
+  end
 
-    #
-    def each_word(&blk)
-      words(&blk)
-    end
+  def sentences(&yld)
+    self.class.sentences(@self, &blk)
+  end
 
-    def sentences(&yld)
-      language.sentences(self, &blk)
-    end
+  #
+  def each_sentence(&blk)
+    sentences(&blk)
+  end
 
-    #
-    def each_sentence(&blk)
-      sentences(&blk)
-    end
+  def paragrpahs(&yld)
+    self.class.paragraphs(@self, &blk)
+  end
 
-    def paragrpahs(&yld)
-      language.paragraphs(self, &blk)
-    end
+  #
+  def each_paragraph(&blk)
+    paragraphs(&blk)
+  end
 
-    #
-    def each_paragraph(&blk)
-      paragraphs(&blk)
-    end
+  #
+  def word_wrap(col_width=79)
+    self.class.word_wrap(@self, col_width)
+  end
 
-    #
-    def word_wrap(col_width=79)
-      language.word_wrap(self, col_width)
-    end
-
-    # As with #word_wrap, but modifies the string in place.
-    def word_wrap!(col_width=79)
-      replace(word_wrap(col_width=79))
-    end
-
+  # As with #word_wrap, but modifies the string in place.
+  def word_wrap!(col_width=79)
+    @self.replace(word_wrap(col_width=79))
   end
 
 end

@@ -1,9 +1,8 @@
-require 'language/current'
+require 'language/class'
 
-module Language
+class Language
 
   module Mixin
-
     #
     def method_missing(s,*a,&b)
       return super(s,*a,&b) if s == Language.current.to_sym
@@ -15,7 +14,6 @@ module Language
         super(s,*a,&b)
       end
     end
-
   end
 
 end
@@ -31,5 +29,4 @@ end
 class Array
   include Language::Mixin
 end
-
 

@@ -1,8 +1,8 @@
-# A hash of International 2- and 3-letter ISO639-1 and ISO639-2 language codes.
+require 'language/class'
 
-module Language
+class Language
 
-  #
+  # A hash of International 2- and 3-letter ISO639-1 and ISO639-2 language codes.
   module Codes
 
 	  # Hash of ISO639 2--letter language codes
